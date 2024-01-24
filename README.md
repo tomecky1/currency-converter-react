@@ -5,7 +5,7 @@ a simple currency converter
 
 ## DEMO
 
-[WEBSITE PREVIEW](https://tomecky1.github.io/kantor/)
+[WEBSITE PREVIEW](https://tomecky1.github.io/currency-converter-react/)
 
 ### DESCRIPTION
 
