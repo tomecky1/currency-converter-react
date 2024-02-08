@@ -1,4 +1,3 @@
-import React from 'react';
 import Form from './Form';
 import Table from './Table';
 import Buttons from './Buttons';
@@ -6,34 +5,29 @@ import Header from './Header';
 import Container from './Container';
 
 function App() {
+
+  const calculateResult = (amount, currency) => {
+    const rateEUR = 4.658;
+    const rateGBP = 5.1123;
+    const rateUSD = 3.858;
+
+    switch (currency) {
+      case "EUR":
+        return amount / rateEUR;
+
+      case "GBP":
+        return amount / rateGBP;
+
+      case "USD":
+        return amount / rateUSD;
+    }
+  }
+
   return (
     <body className="body">
       <Header />
       <Container>
         <Table />
-        {/* <script>
-          const tableBody = document.querySelector(".js-table-body");
-          fetch("https://api.nbp.pl/api/exchangerates/tables/A")
-            .then((response) => response.json())
-            .then((data) => {
-              data[0].rates.forEach((rate) => {
-                const row = document.createElement("tr");
-                const nameCell = document.createElement("td");
-                const codeCell = document.createElement("td");
-                const midCell = document.createElement("td");
-
-                nameCell.textContent = rate.currency;
-                codeCell.textContent = rate.code;
-                midCell.textContent = rate.mid;
-
-                row.appendChild(nameCell);
-                row.appendChild(codeCell);
-                row.appendChild(midCell);
-
-                tableBody.appendChild(row);
-              });
-            });
-        </script> */}
         <Form />
         <Buttons />
         <div className="newValue js-newValue">
