@@ -2,19 +2,20 @@ html {
   box-sizing: border-box;
 }
 
-*, *::after, *::before {
+*,
+*::after,
+*::before {
   box-sizing: inherit;
 }
 
-.body {
+body {
   max-width: 1000px;
   margin: 0 auto;
   padding: 20px 20px;
   font-family: "Roboto", sans-serif;
   line-height: 1.5;
   background-color: burlywood;
-  background-image: url("./pexels-skitterphoto-12619.jpg");
-  background-position: center center;
+  background-image: url("./pexels-lukas-590041.jpg");
   background-size: cover;
 }
 

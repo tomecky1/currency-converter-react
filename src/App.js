@@ -6,7 +6,7 @@ import Container from './Container';
 
 function App() {
   return (
-    <body className="body">
+    <>
       <Header />
       <Container>
         <Table />
@@ -17,7 +17,7 @@ function App() {
           <strong className="newCurrency js-result">B/D</strong>
         </div>
       </Container>
-    </body>
+    </>
   );
 }
 

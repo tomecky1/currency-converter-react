@@ -13,12 +13,18 @@ function Form() {
         console.log("Przeliczam");
     };
 
+    const onFormReset = (event) => {
+        event.preventDefault();
+        setAmount(0); // reset input value
+        console.log("Resetuję");
+    }
+
     const rateEUR = 4.658;
     const rateGBP = 5.1123;
     const rateUSD = 3.858;
 
     return (
-        <form className="form" onSubmit={onFormSubmit}>
+        <form className="form" onSubmit={onFormSubmit} onReset={onFormReset}>
             <fieldset className="form__fieldset">
                 <legend className="form__legend">
                     przelicznik walut - pola oznaczone <strong>gwiazdką</strong> są
