@@ -17,11 +17,30 @@ function Form() {
         event.preventDefault();
         setAmount(0); // reset input value
         console.log("Resetuję");
-    }
+    };
 
     const rateEUR = 4.658;
     const rateGBP = 5.1123;
     const rateUSD = 3.858;
+
+    //oblicz walutę
+    function onClickCalculate() {
+        const currency = document.querySelector(".js-currency").value;
+        const resultElement = document.querySelector(".js-result");
+        switch (currency) {
+            case "EUR":
+                resultElement.textContent = (amount / rateEUR).toFixed(2) + " EUR";
+                break;
+            case "GBP":
+                resultElement.textContent = (amount / rateGBP).toFixed(2) + " GBP";
+                break;
+            case "USD":
+                resultElement.textContent = (amount / rateUSD).toFixed(2) + " USD";
+                break;
+            default:
+                resultElement.textContent = "B/D";
+        }
+    };
 
     return (
         <form className="form" onSubmit={onFormSubmit} onReset={onFormReset}>
@@ -59,25 +78,8 @@ function Form() {
             <>
                 <button className="form__button"
                     type="submit"
-                    onClick={
-                        () => {
-                            const currency = document.querySelector(".js-currency").value;
-                            const resultElement = document.querySelector(".js-result");
-                            switch (currency) {
-                                case "EUR":
-                                    resultElement.textContent = (amount / rateEUR).toFixed(2) + " EUR";
-                                    break;
-                                case "GBP":
-                                    resultElement.textContent = (amount / rateGBP).toFixed(2) + " GBP";
-                                    break;
-                                case "USD":
-                                    resultElement.textContent = (amount / rateUSD).toFixed(2) + " USD";
-                                    break;
-                                default:
-                                    resultElement.textContent = "B/D";
-                            }
-                        }
-                    }>PRZELICZ</button>
+                    onClick={onClickCalculate}
+                >PRZELICZ</button>
                 <button className="form__button" type="reset">RESETUJ</button>
             </>
         </form>

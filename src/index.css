@@ -15,8 +15,6 @@ body {
   font-family: "Roboto", sans-serif;
   line-height: 1.5;
   background-color: burlywood;
-  background-image: url("./pexels-lukas-590041.jpg");
-  background-size: cover;
 }
 
 .newCurrency {
