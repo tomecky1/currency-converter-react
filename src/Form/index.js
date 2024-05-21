@@ -45,13 +45,10 @@ function Form() {
     return (
         <form className="form" onSubmit={onFormSubmit} onReset={onFormReset}>
             <fieldset className="form__fieldset">
-                <legend className="form__legend">
-                    przelicznik walut - pola oznaczone <strong>gwiazdką</strong> są
-                    obowiązkowe do wypełnienia
-                </legend>
+                <h1 className="form__title">Przelicznik walut</h1>
                 <p>
                     <label>
-                        <span className="form__labelText">* Waluta w PLN:</span>
+                        <span className="form__labelText">Kwota w zł*:</span>
                         <input
                             value={amount}
                             onChange={onInputChange}
@@ -60,13 +57,13 @@ function Form() {
                             min="0"
                             step="any"
                             required
-                            placeholder="podaj dowolną kwotę w PLN"
+                            placeholder="wpisz kwotę w złotych"
                         />
                     </label>
                 </p>
                 <p>
                     <label>
-                        <span className="form__labelText">* WALUTA:</span>
+                        <span className="form__labelText">Waluta:</span>
                         <select className="form__field js-currency" name="currencySelector">
                             <option value="EUR">Euro</option>
                             <option value="GBP">Funt brytyjski</option>

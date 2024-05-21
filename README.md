@@ -1,7 +1,7 @@
 # Kantor
 
 a simple currency converter
-![PAGE SCREENSHOT](/src/demo-converter.png "Exchange - currency converter")
+![PAGE SCREENSHOT](/src/preview-kantor.png "Exchange - currency converter")
 
 ## DEMO
 

@@ -6,9 +6,10 @@ import Container from './Container';
 function App() {
   return (
     <>
-      <Header />
       <Container>
-        <Table />
+
+        {/* <Table /> */}
+        <Header />
         <Form />
         <div className="newValue js-newValue">
           Wartość waluty wynosi:
