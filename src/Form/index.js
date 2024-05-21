@@ -54,7 +54,6 @@ function Form() {
                             onChange={onInputChange}
                             className="form__field js-baseCurrency"
                             type="number"
-                            min="0"
                             step="any"
                             required
                             placeholder="wpisz kwotę w złotych"
