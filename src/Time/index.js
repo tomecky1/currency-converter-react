@@ -1,9 +1,5 @@
 import "./style.css";
-
-setInterval(() => {
-    Time();
-
-}, 1000);
+import React from "react";
 
 function Time() {
     const date = new Date();
@@ -13,25 +9,10 @@ function Time() {
 
     return (
         <>
-            <p>Dzisiaj jest {day}, {newDate}</p>
+            <p className="date">Dzisiaj jest {day}, {newDate}</p>
         </>
     );
 
 };
-
-
-// const setTimer = setInterval(() => {
-//     Time();
-// }, 1000);
-
-// function renderTime() {
-
-//     return (
-//         { setTimer }
-//     );
-// };
-
-// renderTime();
-
 
 export default Time;

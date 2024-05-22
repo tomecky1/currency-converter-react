@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 
 function Form() {
-    const [amount, setAmount] = useState(0);
+    const [amount, setAmount] = useState("");
     const onInputChange = ({ target }) => {
         setAmount(target.value);
     };
@@ -57,6 +57,7 @@ function Form() {
                             step="any"
                             required
                             placeholder="wpisz kwotę w złotych"
+                            autoFocus
                         />
                     </label>
                 </p>
