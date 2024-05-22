@@ -15,7 +15,8 @@ body {
   max-width: 1000px;
   margin: 0 auto;
   padding: 20px 20px;
-  font-family: "Roboto", sans-serif;
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
   line-height: 1.5;
   background-image: url("./coins-1726618_1920.jpg");
   background-size: cover;
