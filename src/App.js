@@ -6,21 +6,6 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 
 function App() {
-
-  const [time, setTime] = useState(new Date().toLocaleString("pl-PL"));
-  console.log(time);
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setTime(new Date().toLocaleString("pl-PL"));
-    }, 1000);
-
-    return () => {
-      clearInterval(intervalId);
-    }
-  }
-    , []);
-
   return (
     <>
       <Container>
