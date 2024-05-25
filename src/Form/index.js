@@ -16,6 +16,7 @@ function Form() {
     const onFormReset = (event) => {
         event.preventDefault();
         setAmount(0); // reset input value
+        document.querySelector(".js-result").textContent = "B/D"; // reset result value
         console.log("Resetuję");
     };
 
@@ -55,6 +56,7 @@ function Form() {
                             className="form__field js-baseCurrency"
                             type="number"
                             step="any"
+                            min={0}
                             required
                             placeholder="wpisz kwotę w złotych"
                             autoFocus
@@ -77,7 +79,9 @@ function Form() {
                     type="submit"
                     onClick={onClickCalculate}
                 >PRZELICZ</button>
-                <button className="form__button" type="reset">RESETUJ</button>
+                <button className="form__button" type="reset"
+                    onClick={onFormReset}
+                >RESETUJ</button>
             </>
         </form>
     );
