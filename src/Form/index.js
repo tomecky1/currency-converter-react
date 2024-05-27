@@ -78,10 +78,11 @@ function Form() {
                 <button className="form__button"
                     type="submit"
                     onClick={onClickCalculate}
-                >PRZELICZ</button>
+                >Przelicz kwotę</button>
                 <button className="form__button" type="reset"
                     onClick={onFormReset}
-                >RESETUJ</button>
+                >Wyzeruj wartośći</button>
+                <p>pola oznaczone gwiazdką są obowiązkowe do wypełnienia</p>
             </>
         </form>
     );
