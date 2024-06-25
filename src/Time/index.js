@@ -3,28 +3,28 @@ import React from "react";
 import { useEffect, useState } from "react";
 
 function Time() {
-  const [time, setTime] = useState(new Date().toLocaleString("pl-PL"));
+  const [time, setTime] = useState(" ");
   console.log(time);
+
+  const formattedDate = new Date().toLocaleString("pl-PL", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    second: "numeric",
+  });
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setTime(
-        new Date().toLocaleString("pl-PL", {
-          weekday: "long",
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-          hour: "numeric",
-          minute: "numeric",
-          second: "2-digit",
-        })
-      );
+      setTime(formattedDate);
     }, 1000);
 
     return () => {
       clearInterval(intervalId);
     };
-  }, []);
+  }, formattedDate);
 
   return (
     <>
