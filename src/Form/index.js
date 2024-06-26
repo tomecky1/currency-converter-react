@@ -1,4 +1,3 @@
-import "./style.css";
 import React, { useState } from "react";
 import styled from "styled-components";
 
@@ -15,6 +14,44 @@ const Wrapper = styled.section`
   background: papayawhip;
 `;
 
+const FormWrapper = styled.form`
+  background-color: #fff;
+  padding: 10px;
+  border: 2px solid #000;
+  border-radius: 15px;
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+`;
+
+const Button = styled.button`
+  width: 50%;
+  border: none;
+  background-color: teal;
+  color: white;
+  padding: 10px;
+
+  &:hover {
+    background-color: hsl(180, 100%, 40%);
+  }
+`;
+
+const Currency = styled.span`
+  display: inline-block;
+  width: 200px;
+  margin-right: 5px;
+`;
+
+const Amount = styled.input`
+  border: 1px solid darkgray;
+  padding: 10px;
+  width: 100%;
+  max-width: 400px;
+`;
+
+const Fieldset = styled.fieldset`
+  border: 0;
+  padding: 10px;
+`;
+
 function Form() {
   const [amount, setAmount] = useState("");
   const onInputChange = ({ target }) => {
@@ -29,7 +66,7 @@ function Form() {
   const onFormReset = (event) => {
     event.preventDefault();
     setAmount(0); // reset input value
-    document.querySelector(".js-result").textContent = "B/D"; // reset result value
+    document.querySelector(".js-result").textContent = " B/D"; // reset result value
     console.log("Resetuję");
   };
 
@@ -52,23 +89,23 @@ function Form() {
         resultElement.textContent = (amount / rateUSD).toFixed(2) + " USD";
         break;
       default:
-        resultElement.textContent = "B/D";
+        resultElement.textContent = " B/D";
     }
   }
 
   return (
-    <form className="form" onSubmit={onFormSubmit} onReset={onFormReset}>
-      <fieldset className="form__fieldset">
+    <FormWrapper onSubmit={onFormSubmit} onReset={onFormReset}>
+      <Fieldset>
         <Wrapper>
           <Title>Przelicznik walut</Title>
         </Wrapper>
         <p>
           <label>
-            <span className="form__labelText">Kwota w zł*:</span>
-            <input
+            <Currency>Kwota w zł*:</Currency>
+            <Amount
               value={amount}
               onChange={onInputChange}
-              className="form__field js-baseCurrency"
+              className="js-baseCurrency"
               type="number"
               step="any"
               min={0}
@@ -80,29 +117,26 @@ function Form() {
         </p>
         <p>
           <label>
-            <span className="form__labelText">Waluta:</span>
-            <select className="form__field js-currency" name="currencySelector">
+            <Currency>Waluta:</Currency>
+
+            <select className="js-currency" name="currencySelector">
               <option value="EUR">Euro</option>
               <option value="GBP">Funt brytyjski</option>
               <option value="USD">Dolar amerykański</option>
             </select>
           </label>
         </p>
-      </fieldset>
+      </Fieldset>
       <>
-        <button
-          className="form__button"
-          type="submit"
-          onClick={onClickCalculate}
-        >
+        <Button type="submit" onClick={onClickCalculate}>
           Przelicz kwotę
-        </button>
-        <button className="form__button" type="reset" onClick={onFormReset}>
+        </Button>
+        <Button type="reset" onClick={onFormReset}>
           Wyzeruj wartośći
-        </button>
+        </Button>
         <p>pola oznaczone gwiazdką są obowiązkowe do wypełnienia</p>
       </>
-    </form>
+    </FormWrapper>
   );
 }
 
