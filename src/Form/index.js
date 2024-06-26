@@ -52,6 +52,11 @@ const Fieldset = styled.fieldset`
   padding: 10px;
 `;
 
+const Select = styled.select`
+  width: 100%;
+  display: block;
+`;
+
 function Form() {
   const [amount, setAmount] = useState("");
   const onInputChange = ({ target }) => {
@@ -118,12 +123,11 @@ function Form() {
         <p>
           <label>
             <Currency>Waluta:</Currency>
-
-            <select className="js-currency" name="currencySelector">
+            <Select className="js-currency" name="currencySelector">
               <option value="EUR">Euro</option>
               <option value="GBP">Funt brytyjski</option>
               <option value="USD">Dolar amerykański</option>
-            </select>
+            </Select>
           </label>
         </p>
       </Fieldset>

@@ -1,6 +1,12 @@
-import "./style.css";
 import React from "react";
 import { useEffect, useState } from "react";
+import styled from "styled-components";
+
+const Clock = styled.time`
+  font-size: small;
+  color: #fff;
+  background-color: #000;
+`;
 
 function Time() {
   const [time, setTime] = useState(" ");
@@ -24,11 +30,11 @@ function Time() {
     return () => {
       clearInterval(intervalId);
     };
-  }, formattedDate);
+  }, [formattedDate]);
 
   return (
     <>
-      <p className="date">Dzisiaj jest {time}</p>
+      <Clock>Dzisiaj jest {time}</Clock>
     </>
   );
 }
