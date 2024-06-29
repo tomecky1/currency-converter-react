@@ -1,6 +1,6 @@
 import React from "react";
-import { useEffect, useState } from "react";
 import styled from "styled-components";
+import { useCurrentDate } from "./useCurrentDate";
 
 const Clock = styled.time`
   font-size: small;
@@ -9,32 +9,11 @@ const Clock = styled.time`
 `;
 
 function Time() {
-  const [time, setTime] = useState(" ");
-  console.log(time);
-
-  const formattedDate = new Date().toLocaleString("pl-PL", {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    hour: "numeric",
-    minute: "numeric",
-    second: "numeric",
-  });
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setTime(formattedDate);
-    }, 1000);
-
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, [formattedDate]);
+  const date = useCurrentDate();
 
   return (
     <>
-      <Clock>Dzisiaj jest {time}</Clock>
+      <Clock>Dzisiaj jest {date}</Clock>
     </>
   );
 }
