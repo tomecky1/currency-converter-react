@@ -22,5 +22,5 @@ export const useCurrentDate = (date) => {
       clearInterval(intervalId);
     };
   }, [formattedDate]);
-  <>return {setTime};</>;
+  return time;
 };
