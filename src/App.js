@@ -22,7 +22,6 @@ function App() {
   return (
     <>
       <Container>
-        {/* <Table /> */}
         <Title>KANTOR</Title>
         <Time />
         <Form />
