@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Time from "../Time";
 import styled from "styled-components";
 
 // Create a Title component that'll render an <h1> tag with some styles
@@ -10,8 +11,10 @@ const Title = styled.h1`
 
 // Create a Wrapper component that'll render a <section> tag with some styles
 const Wrapper = styled.section`
-  padding: 2em;
+  padding: 1.5em;
   background: papayawhip;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
 `;
 
 const FormWrapper = styled.form`
@@ -28,6 +31,7 @@ const Button = styled.button`
   background-color: teal;
   color: white;
   padding: 10px;
+  border-radius: 10px;
 
   &:hover {
     background-color: hsl(180, 100%, 40%);
@@ -36,13 +40,14 @@ const Button = styled.button`
 
 const Currency = styled.span`
   display: inline-block;
-  width: 200px;
-  margin-right: 5px;
+  width: 100%;
+  padding: 15px;
+  max-width: 400px;
 `;
 
 const Amount = styled.input`
   border: 1px solid darkgray;
-  padding: 10px;
+  padding: 15px;
   width: 100%;
   max-width: 400px;
 `;
@@ -54,7 +59,7 @@ const Fieldset = styled.fieldset`
 
 const Select = styled.select`
   width: 100%;
-  display: block;
+  display: inline-block;
 `;
 
 function Form() {
@@ -66,6 +71,7 @@ function Form() {
   const onFormSubmit = (event) => {
     event.preventDefault();
     console.log("Przeliczam");
+    document.querySelector(".kwota").textContent = <Amount value={amount} />;
   };
 
   const onFormReset = (event) => {
@@ -100,6 +106,7 @@ function Form() {
 
   return (
     <FormWrapper onSubmit={onFormSubmit} onReset={onFormReset}>
+      <Time />
       <Fieldset>
         <Wrapper>
           <Title>Przelicznik walut</Title>
@@ -113,7 +120,7 @@ function Form() {
               className="js-baseCurrency"
               type="number"
               step="any"
-              min={0}
+              min={0.1}
               required
               placeholder="wpisz kwotę w złotych"
               autoFocus
@@ -130,14 +137,14 @@ function Form() {
             </Select>
           </label>
         </p>
-      </Fieldset>
-      <>
         <Button type="submit" onClick={onClickCalculate}>
           Przelicz kwotę
         </Button>
         <Button type="reset" onClick={onFormReset}>
           Wyzeruj wartośći
         </Button>
+      </Fieldset>
+      <>
         <p>pola oznaczone gwiazdką są obowiązkowe do wypełnienia</p>
       </>
     </FormWrapper>

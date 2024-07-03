@@ -1,5 +1,4 @@
 import Form from "./Form";
-import Time from "./Time";
 import Container from "./Container";
 import styled from "styled-components";
 
@@ -23,10 +22,9 @@ function App() {
     <>
       <Container>
         <Title>KANTOR</Title>
-        <Time />
         <Form />
         <Wrapper>
-          Wartość waluty wynosi:
+          <p className="kwota">Wartość waluty wynosi:</p>
           <strong className="newCurrency js-result"> B/D</strong>
         </Wrapper>
       </Container>

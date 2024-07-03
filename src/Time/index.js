@@ -4,8 +4,9 @@ import { useCurrentDate } from "./useCurrentDate";
 
 const Clock = styled.time`
   font-size: small;
-  color: #fff;
+  color: grey;
   background-color: #000;
+  text-align: end;
 `;
 
 function formattedDate() {
@@ -25,7 +26,11 @@ function formattedDate() {
 function Time() {
   const date = useCurrentDate();
 
-  return <Clock>Dzisiaj jest {formattedDate(date)}</Clock>;
+  return (
+    <Clock>
+      <p>Dzisiaj jest {formattedDate(date)}</p>
+    </Clock>
+  );
 }
 
 export default Time;
