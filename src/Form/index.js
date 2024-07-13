@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Time from "../Time";
 import styled from "styled-components";
+import { useApiRates, getApiData } from "../useApiRates";
 
 // Create a Title component that'll render an <h1> tag with some styles
 const Title = styled.h1`
@@ -64,14 +65,16 @@ const Select = styled.select`
 
 function Form() {
   const [amount, setAmount] = useState("");
+  const [currency, setCurrency] = useState("EUR");
+  const ratesData = useApiRates;
   const onInputChange = ({ target }) => {
-    setAmount(target.value);
+    setCurrency(target.value);
   };
 
   const onFormSubmit = (event) => {
     event.preventDefault();
     console.log("Przeliczam");
-    document.querySelector(".kwota").textContent = <Amount value={amount} />;
+    onClickCalculate();
   };
 
   const onFormReset = (event) => {
@@ -81,28 +84,21 @@ function Form() {
     console.log("Resetuję");
   };
 
-  const rateEUR = 4.658;
-  const rateGBP = 5.1123;
-  const rateUSD = 3.858;
-
   //oblicz walutę
   function onClickCalculate() {
-    const currency = document.querySelector(".js-currency").value;
+    const rate = ratesData.data[currency].value;
     const resultElement = document.querySelector(".js-result");
-    switch (currency) {
-      case "EUR":
-        resultElement.textContent = (amount / rateEUR).toFixed(2) + " EUR";
-        break;
-      case "GBP":
-        resultElement.textContent = (amount / rateGBP).toFixed(2) + " GBP";
-        break;
-      case "USD":
-        resultElement.textContent = (amount / rateUSD).toFixed(2) + " USD";
-        break;
-      default:
-        resultElement.textContent = " B/D";
-    }
+
+    setAmount({
+      sourceAmount: +amount,
+      targetAmount: amount * rate,
+      currency,
+    });
   }
+
+  const getExchangeDate = (ratesData) => {
+    return new Date(ratesData.date).toLocaleDateString();
+  };
 
   return (
     <FormWrapper onSubmit={onFormSubmit} onReset={onFormReset}>
@@ -122,7 +118,7 @@ function Form() {
               step="any"
               min={0.1}
               required
-              placeholder="wpisz kwotę w złotych"
+              placeholder="podaj kwotę w złotych"
               autoFocus
             />
           </label>
@@ -131,9 +127,11 @@ function Form() {
           <label>
             <Currency>Waluta:</Currency>
             <Select className="js-currency" name="currencySelector">
-              <option value="EUR">Euro</option>
-              <option value="GBP">Funt brytyjski</option>
-              <option value="USD">Dolar amerykański</option>
+              {Object.keys(ratesData.data || {}).map((currency) => (
+                <option key={currency} value={currency}>
+                  {currency}
+                </option>
+              ))}
             </Select>
           </label>
         </p>
@@ -145,7 +143,8 @@ function Form() {
         </Button>
       </Fieldset>
       <>
-        <p>pola oznaczone gwiazdką są obowiązkowe do wypełnienia</p>
+        <p>Kursy walut pobierane są z różnych instytucji finansowych.</p>
+        <p>Aktualne na dzień: {getExchangeDate(ratesData)}</p>
       </>
     </FormWrapper>
   );
