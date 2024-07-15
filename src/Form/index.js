@@ -66,7 +66,7 @@ const Select = styled.select`
 function Form() {
   const [amount, setAmount] = useState("");
   const [currency, setCurrency] = useState("EUR");
-  const ratesData = useApiRates;
+  const ratesData = useApiRates();
   const onInputChange = ({ target }) => {
     setCurrency(target.value);
   };
@@ -97,7 +97,7 @@ function Form() {
   }
 
   const getExchangeDate = (ratesData) => {
-    return new Date(ratesData.date).toLocaleDateString();
+    return new Date(ratesData.date).toLocaleDateString("pl-PL");
   };
 
   return (
@@ -116,7 +116,7 @@ function Form() {
               className="js-baseCurrency"
               type="number"
               step="any"
-              min={0.1}
+              min={0.01}
               required
               placeholder="podaj kwotę w złotych"
               autoFocus
