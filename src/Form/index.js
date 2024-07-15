@@ -64,8 +64,8 @@ const Select = styled.select`
 `;
 
 function Form() {
-  const [amount, setAmount] = useState("");
-  const [currency, setCurrency] = useState("EUR");
+  const [amount, setAmount] = useState(null);
+  const [currency, setCurrency] = useState("");
   const ratesData = useApiRates();
   const onInputChange = ({ target }) => {
     setCurrency(target.value);
@@ -74,7 +74,7 @@ function Form() {
   const onFormSubmit = (event) => {
     event.preventDefault();
     console.log("Przeliczam");
-    onClickCalculate();
+    onClickCalculate(currency, amount);
   };
 
   const onFormReset = (event) => {
@@ -85,7 +85,7 @@ function Form() {
   };
 
   //oblicz walutę
-  function onClickCalculate() {
+  function onClickCalculate(currency, amount) {
     const rate = ratesData.data[currency].value;
     const resultElement = document.querySelector(".js-result");
 
@@ -111,7 +111,7 @@ function Form() {
           <label>
             <Currency>Kwota w zł*:</Currency>
             <Amount
-              value={amount}
+              value={currency}
               onChange={onInputChange}
               className="js-baseCurrency"
               type="number"
