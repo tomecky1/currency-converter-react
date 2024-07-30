@@ -28,7 +28,7 @@ function Form() {
     console.log(ratesData.data);
     setResult({
       sourceAmount: +amount,
-      targetAmount: amount / rate,
+      targetAmount: amount * rate,
       currency,
     });
   }
