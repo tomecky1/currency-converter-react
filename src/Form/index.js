@@ -40,9 +40,7 @@ function Form() {
 
   const onFormReset = (event) => {
     event.preventDefault();
-    setCurrency(0); // reset input value
-    document.querySelector(".js-result").textContent = " B/D"; // reset result value
-    console.log("Resetuję");
+    setAmount(0); // reset input value
   };
 
   const getExchangeDate = (ratesData) => {
