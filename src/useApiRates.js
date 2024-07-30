@@ -27,7 +27,7 @@ export const useApiRates = () => {
         });
       }
     };
-    setTimeout(axiosRates, 2 * 1000);
+    setTimeout(axiosRates, 2 * 1500);
   }, []);
 
   return ratesData;
