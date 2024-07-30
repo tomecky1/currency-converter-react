@@ -24,7 +24,7 @@ function App() {
     .then((Response) => console.log(Response.data))
     .catch((error) => console.log(error));
 
-  const dimensions = useWindowDimensions;
+  const dimensions = useWindowDimensions();
 
   return (
     <>
