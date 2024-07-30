@@ -96,7 +96,7 @@ function Form() {
               Przelicz kwotę
             </Button>
             <Button type="reset" onClick={onFormReset}>
-              Wyzeruj wartośći
+              Wyzeruj
             </Button>
           </Fieldset>
           <>
