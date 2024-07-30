@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 export const getApiData = async () => {
   const response = await axios.get(
-    "https://api.currencyapi.com/v3/latest?apikey=cur_live_hwc6gVMVa4MwYMuMe8aa0dnAK1mFzQK1VPWgEW7p"
+    "https://api.currencyapi.com/v3/latest?apikey=cur_live_hwc6gVMVa4MwYMuMe8aa0dnAK1mFzQK1VPWgEW7p&base_currency=PLN"
   );
   return response;
 };
