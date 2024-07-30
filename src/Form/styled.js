@@ -47,7 +47,6 @@ export const Amount = styled.input`
   border: 1px solid darkgray;
   padding: 15px;
   width: 100%;
-  max-width: 400px;
 `;
 
 export const Fieldset = styled.fieldset`
