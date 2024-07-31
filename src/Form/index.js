@@ -41,6 +41,7 @@ function Form() {
   const onFormReset = (event) => {
     event.preventDefault();
     setAmount(0); // reset input value
+    setCurrency("ADA");
   };
 
   const getExchangeDate = (ratesData) => {
