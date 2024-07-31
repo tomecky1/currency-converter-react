@@ -26,7 +26,6 @@ function Form() {
   //oblicz walutę
   function onClickCalculate(currency, amount) {
     const rate = ratesData.data[currency].value;
-    console.log(ratesData.data);
     setResult({
       sourceAmount: +amount,
       targetAmount: amount * rate,

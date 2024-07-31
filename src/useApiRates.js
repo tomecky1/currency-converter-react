@@ -18,7 +18,7 @@ export const useApiRates = () => {
         setRatesData({
           data: response.data.data,
           date: response.data.meta.last_updated_at,
-          status: "downloaded",
+          status: "success",
         });
       } catch (error) {
         setRatesData({

@@ -37,10 +37,8 @@ export const Button = styled.button`
 `;
 
 export const Currency = styled.span`
-  display: inline-block;
   width: 100%;
   padding: 15px;
-  max-width: 400px;
 `;
 
 export const Amount = styled.input`
