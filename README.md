@@ -13,8 +13,8 @@ This my first simple currency converter still in development [IN-PROGRESS]
 
 **things to do:**
 
-- add other currencies
-- implement a real converter values for selected currency from API
+- add other currencies [DONE]
+- implement a real converter values for selected currency from API [DONE]
 - other stuff (in future) 😁
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

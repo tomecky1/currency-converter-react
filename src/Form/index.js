@@ -100,7 +100,10 @@ function Form() {
             </Button>
           </Fieldset>
           <>
-            <p>Kursy walut pobierane są z różnych instytucji finansowych.</p>
+            <p>
+              Kursy walut pobierane są z różnych europejskich instytucji
+              finansowych.
+            </p>
             <p>Aktualne na dzień: {getExchangeDate(ratesData)}</p>
           </>
           <Result result={result} />
